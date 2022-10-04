@@ -1,0 +1,1570 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/e5a26ccae2.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:wght@500&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-bar {
+      box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+      position: sticky;
+      top: 0;
+      z-index: 9;
+      display: flex;
+      flex-direction: column;
+      background-color: #fafafa;
+      min-height: 73.38px;
+    }
+
+    .upper-nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 2%;
+      min-height: 73.38px;
+    }
+
+    .nav-bar img {
+      width: 200px;
+    }
+
+    .link-container {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .a-navbar-link {
+      font-family: 'Montserrat', sans-serif;
+      color: rgb(51, 51, 51);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7em;
+      white-space: nowrap;
+      position: relative;
+      transition: all .5s;
+    }
+
+    .a-navbar-link:hover {
+      color: #f36e27;
+    }
+
+    .link-container {
+      display: flex;
+      /* gap:35px; */
+      align-items: center;
+      min-height: 73.38px;
+    }
+
+    .nav-bar sup {
+      background-color: #f36e27;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 50px;
+      font-size: 12px;
+      position: absolute;
+      top: 6px;
+      left: 42px;
+    }
+
+    .fa-heart,
+    .fa-shopping-cart,
+    .fa-window-maximize {
+      font-size: 115% !important;
+    }
+
+    .fa-caret-down {
+      margin-left: 10px;
+    }
+
+    .link-container-l {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 73.38px;
+    }
+
+    .logo-container {
+      width: 20%;
+      display: flex;
+      align-items: center;
+    }
+
+    .strok .a-navbar-link,
+    .strok .a-navbar-link:after,
+    .strok .a-navbar-link:before {
+      transition: all .5s;
+    }
+
+    .strok .a-navbar-link:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 0%;
+      content: '.';
+      color: transparent;
+      background: #f36e27;
+      height: 2px;
+    }
+
+    .strok .a-navbar-link:hover:after {
+      width: 100%;
+    }
+
+    .profile {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      background-color: #fafafa;
+      position: absolute;
+      right: -19px;
+      top: 52px;
+      border: 1px solid #f36e27;
+      border: 1px solid rgba(0, 0, 0, .15);
+      border-radius: 0.25rem;
+    }
+
+    .click-open {
+      position: relative;
+    }
+
+    .profile li {
+      padding: 3px 36px;
+      white-space: nowrap;
+    }
+
+    .profile li:hover {
+      background-color: #ec6940;
+      color: white;
+    }
+
+    .profile li:hover .a-navbar-linkk {
+      color: white;
+    }
+
+    .a-navbar-linkk,
+    .cat a {
+      font-family: 'Montserrat', sans-serif;
+      color: #000;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7em;
+    }
+
+    .sub .a-navbar-linkk {
+      color: #948e94;
+
+    }
+
+    .subb li {
+      padding: 5px 0px;
+    }
+
+    .d-none {
+      display: none !important;
+    }
+
+    .active {
+      color: #ec6940;
+    }
+
+    .p-relative {
+      position: relative;
+    }
+
+    .main-link {
+      min-height: 73.38px;
+      display: flex;
+      align-items: center;
+      text-decoration-color: #ec6940;
+      padding: 0px 28px;
+    }
+
+    .cat {
+      display: flex;
+      border-bottom: 1px solid rgb(0 0 0 / 15%);
+    }
+
+    .w-50 {
+      width: 50%;
+      text-align: center;
+    }
+
+    .lower-nav {
+      border-top: 1px solid rgb(0 0 0 / 15%);
+    }
+
+    .gender-link {
+      padding: 15px 0px;
+    }
+
+    .link-container-l ul .d-flexx {
+      padding: 30px 3%;
+      box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+      width: 100%;
+      position: absolute;
+      top: 70px;
+      left: 0px;
+      display: none;
+      background-color: rgb(250, 250, 250);
+    }
+
+    .link-container-l ul li:hover>div {
+      display: flex;
+    }
+
+    .link-container-l ul li:hover nav-bar {
+      box-shadow: none;
+    }
+
+    .shadow-none {
+      box-shadow: none;
+    }
+
+    .bottom-nav li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0px;
+    }
+
+    .d-flexx {
+
+      justify-content: space-around;
+      padding: 20px 5%;
+      border-top: 1px solid #cacac9;
+    }
+
+    .sub {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .subb {
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 100%;
+      padding-left: 50px;
+    }
+
+    .sub-cat-conatiner {
+
+      padding: 15px 0px;
+      background-color: #fafafa;
+    }
+
+    .sub-cat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 15px 15px;
+      cursor: pointer;
+    }
+
+    .sub-cat a {
+      color: rgba(0, 0, 0, 0.805);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hover-background {
+      background-color: #f3f3f3;
+      color: #611912;
+    }
+
+    /* .sub-cat:hover a{
+  color: white;
+} */
+    .w-c {
+      color: #611912 !important;
+    }
+
+    .sub a:hover {
+      color: black;
+    }
+
+    .d-nonee {
+      display: none;
+    }
+
+    .heading {
+      font-weight: 600 !important;
+      text-decoration: underline;
+      color: #ED6940 !important;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 10px;
+      white-space: nowrap;
+    }
+
+    .sub-cat .fa-angle-right {
+      color: #a6a6a6;
+    }
+
+    .level-3-container {
+      width: 60%;
+    }
+
+    .border-right {
+      border-right: 1px solid rgb(0 0 0 / 15%);
+    }
+
+    .active-underline {
+      color: #f36e27;
+    }
+
+    .active-underline:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 100%;
+      content: '.';
+      color: transparent;
+      background: #f36e27;
+      height: 2px;
+    }
+
+    .main-contaier {
+      height: 150vh;
+      background-color: #ED6940;
+    }
+
+    .sub-cat-conatiner-1,
+    .sub-cat-conatiner-2 {
+      width: 20%;
+    }
+
+    /* humburger */
+    .menu-btn {
+      width: 80px;
+      height: 80px;
+      /* border: 3px solid #fff; */
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: all 0.5s ease-in-out;
+      cursor: pointer;
+      display: none;
+    }
+
+    .menu-btn__burger {
+      width: 35px;
+      height: 3px;
+      background: rgb(51, 51, 51);
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+      transition: all .5s ease-in-out;
+    }
+
+    .menu-btn__burger::before,
+    .menu-btn__burger::after {
+      content: ' ';
+      position: absolute;
+      width: 35px;
+      height: 3px;
+      background: rgb(51, 51, 51);
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+      transition: all .5s ease-in-out;
+    }
+
+    .menu-btn__burger::before {
+      transform: translateY(-10px);
+    }
+
+    .menu-btn__burger::after {
+      transform: translateY(10px);
+    }
+
+    .menu-btn.open .menu-btn__burger {
+      transform: translateX(-50px);
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .menu-btn.menu-btn.open .menu-btn__burger::before {
+      transform: rotate(45deg) translate(35px, -35px);
+    }
+
+    .menu-btn.open .menu-btn__burger::after {
+      transform: rotate(-45deg) translate(35px, 35px);
+    }
+
+    /* humbargerEnd */
+    /* sideNav */
+    .side-nav {
+      overflow-x: hidden;
+      position: fixed;
+      z-index: 100000;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      display: flex;
+    }
+
+    .space {
+      width: 80%;
+      background-color: #00000070;
+    }
+
+    .side-nav-card {
+      background-color: #fafafa;
+      width: 20%;
+      border-top: 1px solid rgb(0 0 0 / 15%);
+    }
+
+    .side-nav-link {
+      width: 100%;
+      align-items: center;
+    }
+
+    .side-nav-link-container li {
+      border-bottom: 1px solid rgb(0 0 0 / 15%);
+    }
+
+    .side-nav-link-container a {
+      font-family: 'Montserrat', sans-serif;
+      color: rgb(51, 51, 51);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7em;
+      white-space: nowrap;
+      width: 98%;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 29px;
+    }
+
+    .side-nav-count sup {
+      color: white;
+      background: orange;
+      padding: 6px 9px;
+      font-size: 10px;
+      position: absolute;
+      border-radius: 50%;
+      top: -15px;
+      left: 11px;
+    }
+
+    .side-nav-count {
+      width: 96% !important;
+    }
+
+    .name {
+      font-family: 'Montserrat', sans-serif;
+      color: #f36e27;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.7em;
+      white-space: nowrap;
+      width: 98%;
+      display: flex;
+      gap: 20px;
+      padding: 20px 29px;
+    }
+
+    .side-nav-card ul {
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .s-nav-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .s-nav-link i {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .s-nav-link .back {
+      justify-content: flex-start !important;
+    }
+
+    @media (max-width: 1399.98px) {
+
+      .main-link {
+        padding: 0px 20px;
+      }
+
+      .nav-bar img {
+        width: 190px;
+      }
+    }
+
+    @media (max-width: 1199.98px) {
+      .link-container-l{
+        display: none;
+      }
+      .menu-btn{
+        display: flex;
+      }
+      .space {
+    width: 70%;
+      }
+      .side-nav-card {
+        width: 30%;
+      }
+    }
+    @media (max-width: 991.98px) { 
+      .space {
+    width: 60%;
+      }
+      .side-nav-card {
+        width: 40%;
+      }
+     }
+     @media (max-width: 767.98px) { 
+      .space {
+    width: 50%;
+      }
+      .side-nav-card {
+        width: 50%;
+      }
+      }
+      @media (max-width: 575.98px) { 
+        .space {
+    width: 40%;
+      }
+      .side-nav-card {
+        width: 60%;
+      }
+       }
+  </style>
+</head>
+<nav class="nav-bar ">
+  <div class="upper-nav">
+    <div class="logo-container">
+      <img src="https://trendgully.com/images/logo-new.png" alt="logo">
+    </div>
+    <div class="menu-btn " id="menu">
+      <div class="menu-btn__burger"></div>
+    </div>
+    <div class="link-container-l ">
+      <ul class="link-container strok">
+        <li class="main-link report shadow-cntrl" data-open="trend"><a href="#" class="a-navbar-link" data-open="trend"
+            id="trend-active">Trend Reports</a>
+          <div class="d-flexx" data-active="trend-active">
+            <!-- add this conatiner inside the main heading listcontainer -->
+            <div class="sub-cat-conatiner-1">
+              <ul class="sub-cat-conatiner">
+                <!-- this is sub option-->
+                <li class="sub-cat d level-1" data-open="trend-men"><a href="#">Men</a><i
+                    class="fa-solid fa-angle-right"></i></li>
+                <li class="sub-cat level-1" data-open="trend-women"><a href="#">Women</a><i
+                    class="fa-solid fa-angle-right"></i></li>
+              </ul>
+            </div>
+            <div class="sub-cat-conatiner-2 d-none">
+              <ul class="sub-cat-conatiner level-2-container default d-none" id="trend-men ">
+                <!-- this is sub option-->
+                <li class="sub-cat d level-2" data-open="trend-men-indian"><a href="#">Indian</a><i
+                    class="fa-solid fa-angle-right"></i></li>
+                <li class="sub-cat level-2" data-open="trend-men-western"><a href="#">Western</a><i
+                    class="fa-solid fa-angle-right"></i></li>
+              </ul>
+              <ul class="sub-cat-conatiner d-none level-2-container d-none" id="trend-women">
+                <!-- this is sub option-->
+                <li class="sub-cat d level-2" data-open="trend-women-indian"><a href="#">Indian</a><i
+                    class="fa-solid fa-angle-right"></i></li>
+                <li class="sub-cat level-2" data-open="trend-women-western"><a href="#">Western</a><i
+                    class="fa-solid fa-angle-right"></i></li>
+              </ul>
+            </div>
+            <div class="level-3-container">
+              <div class="level-3 sub trend-men main-link-default" id="trend-men-indian">
+                <!-- level-1 id as class for default  so that after hover on level-1 the fist one of level-1 option are display-->
+                <ul class="subb">
+                  <!-- this are  options-->
+                  <li class="heading">All Season</li>
+                  <li><a href="#" class="a-navbar-linkk">Globe Trotter</a></li>
+                </ul>
+                <ul class="subb">
+                  <li class="heading">Autumn Winter 22-23</li>
+                  <li><a href="#" class="a-navbar-linkk">Digital Dystopia</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Indigenous Heritage</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Outdoor Adventure</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Outdoor Botanics</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Retro College</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Typo Explosion</a></li>
+                </ul>
+                <ul class="subb">
+                  <li class="heading">Spring Summer 23</li>
+                  <li><a href="#" class="a-navbar-linkk">Nautical Pop</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Punk Pop</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Sportify</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Vacay Life</a></li>
+                </ul>
+                <ul class="subb">
+                  <li class="heading">Autumn Winter 23-24</li>
+                  <li><a href="#" class="a-navbar-linkk">Meta Dream</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Old World</a></li>
+                </ul>
+              </div>
+
+              <div class="level-3 sub d-none" id="trend-men-western">
+                <ul class="subb">
+                  <!-- this are  options-->
+                  <li class="heading">trend-men-western</li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                </ul>
+                <ul class="subb">
+                  <li class="heading">heading-w</li>
+                  <li><a href="#" class="a-navbar-linkk">Profile1</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile1</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile1</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                </ul>
+              </div>
+              <div class="level-3 sub d-none trend-women" id="trend-women-indian">
+                <ul class="subb">
+                  <!-- this are  options-->
+                  <li class="heading">All Season</li>
+                  <li><a href="#" class="a-navbar-linkk">LOVE</a></li>
+                </ul>
+                <ul class="subb">
+                  <li class="heading">Autumn Winter 22-23</li>
+                  <li><a href="#" class="a-navbar-linkk">Digital Dystopia</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Outdoor Botanics</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Retro College</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Typo Explosion</a></li>
+                </ul>
+                <ul class="subb">
+                  <li class="heading">Spring Summer 23</li>
+                  <li><a href="#" class="a-navbar-linkk">Meta Real</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Seaside Stories</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Sportify</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Vacay Life</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Vintage Boho</a></li>
+                </ul>
+                <ul class="subb">
+                  <li class="heading">Autumn Winter 23-24</li>
+                  <li><a href="#" class="a-navbar-linkk">Meta Dream</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Winter Botanics</a></li>
+                </ul>
+              </div>
+
+              <div class="level-3 sub d-none" id="trend-women-western">
+                <ul class="subb">
+                  <!-- this are  options-->
+                  <li class="heading">trend-women-western</li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                </ul>
+                <ul class="subb">
+                  <li class="heading">heading-w</li>
+                  <li><a href="#" class="a-navbar-linkk">Profile1</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile1</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile1</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="main-link shadow-cntrl border-right" data-open="designs"><a href="#" class="a-navbar-link"
+            id="designs-active">Designs</a>
+          <div class="d-flexx" data-active="designs-active">
+            <!-- add this conatiner inside the main heading listcontainer -->
+            <div class="sub-cat-conatiner-1">
+              <ul class="sub-cat-conatiner ">
+                <!-- this is sub option-->
+                <li class="sub-cat d level-1" data-open="designs-men"><a href="#">Men</a><i
+                    class="fa-solid fa-angle-right"></i></li>
+                <li class="sub-cat level-1" data-open="designs-women"><a href="#">Women</a><i
+                    class="fa-solid fa-angle-right"></i></li>
+              </ul>
+            </div>
+            <div class="sub-cat-conatiner-2 d-none">
+              <ul class="sub-cat-conatiner level-2-container default" id="designs-men">
+                <!-- this is sub option-->
+                <li class="sub-cat d level-2" data-open="designs-men-indian"><a href="#">Indian</a><i
+                    class="fa-solid fa-angle-right"></i></li>
+                <li class="sub-cat level-2" data-open="designs-men-western"><a href="#">Western</a><i
+                    class="fa-solid fa-angle-right"></i></li>
+              </ul>
+              <ul class="sub-cat-conatiner d-none level-2-container" id="designs-women">
+                <!-- this is sub option-->
+                <li class="sub-cat d level-2" data-open="designs-women-indian"><a href="#">Indian</a><i
+                    class="fa-solid fa-angle-right"></i></li>
+                <li class="sub-cat level-2" data-open="designs-women-western"><a href="#">Western</a><i
+                    class="fa-solid fa-angle-right"></i></li>
+              </ul>
+            </div>
+            <div class="level-3-container">
+              <div class="level-3 sub designs-men main-link-default" id="designs-men-indian">
+                <!-- level-1 id as class for default  so that after hover on level-1 the fist one of level-1 option are display-->
+
+                <ul class="subb">
+                  <li><a href="#" class="a-navbar-linkk">Abstract</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Adventure</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Animal</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Aztec</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Bohemian</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Camouflage</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Checks</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Christmas</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Cities</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Clubbing</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Comic Strips</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Feminism</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Florals</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Food</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Geometric</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Hipsters</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Illustrations</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Indian Typography</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Japanese Art</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Love</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Marble</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Metaverse & Gaming</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Micro Patterns</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Motorsport & Aviation</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Music</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Nature</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Nautical</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Paisely</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Polka</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Skulls</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Social Media Trends</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Space</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Sports</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Stripes</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Sustainability</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Tattoos</a></li>
+                </ul>
+              </div>
+
+              <div class="level-3 sub d-none" id="designs-men-western">
+                <ul class="subb">
+                  <!-- this are  options-->
+                  <li class="heading">Womenswea-men</li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                </ul>
+                <ul class="subb">
+                  <li class="heading">designs-men-western</li>
+                  <li><a href="#" class="a-navbar-linkk">Profile1</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile1</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile1</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                </ul>
+              </div>
+              <div class="level-3 sub d-none designs-women" id="designs-women-indian">
+                <ul class="subb">
+                  <li><a href="#" class="a-navbar-linkk">Abstract-w</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Adventure</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Animal</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Aztec</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Bohemian</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Camouflage</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Checks</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Christmas</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Cities</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Clubbing</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Comic Strips</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Feminism</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Florals</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Food</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Geometric</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Hipsters</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Illustrations</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Indian Typography</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Japanese Art</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Love</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Marble</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Metaverse & Gaming</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Micro Patterns</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Motorsport & Aviation</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Music</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Nature</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Nautical</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Paisely</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Polka</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Skulls</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Social Media Trends</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Space</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Sports</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Stripes</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Sustainability</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Tattoos</a></li>
+                </ul>
+              </div>
+
+              <div class="level-3 sub d-none" id="designs-women-western">
+                <ul class="subb">
+                  <!-- this are  options-->
+                  <li class="heading">designs-women-western</li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                </ul>
+                <ul class="subb">
+                  <li class="heading">heading-w</li>
+                  <li><a href="#" class="a-navbar-linkk">Profile1</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile1</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile1</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                  <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="main-link " data-open="customized"><a href="#" class="a-navbar-link">Customized Designs</a></li>
+        <li class="main-link " data-open="dashboard"><a href="#" class="a-navbar-link">Dashboard</a></li>
+      </ul>
+      <ul class="link-container ">
+        <li class="main-link p-relative"><a href="#" class="a-navbar-link"><i class="fa-solid fa-heart"></i></a>
+          <sup>5</sup>
+        </li>
+        <li class="main-link p-relative"><a href="#" class="a-navbar-link"><i class="fa fa-shopping-cart"></i></a>
+          <sup>5</sup>
+        </li>
+        <li class="main-link p-relative"><a href="#" class="a-navbar-link"><i class="fa fa-window-maximize"></i></a>
+          <sup>5</sup>
+        </li>
+        <li class="main-linkk click-open" data-open="profile"><a href="#" class="a-navbar-link">
+            Hi Awi!<i class="fa-solid fa-caret-down"></i>
+            </i></a>
+          <ul class="profile d-nonee" id="profile">
+            <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+            <li><a href="#" class="a-navbar-linkk">Design Download History</a></li>
+            <li><a href="#" class="a-navbar-linkk">Trend Reports Download History</a></li>
+            <li><a href="#" class="a-navbar-linkk">Catalogue Download History</a></li>
+            <li><a href="#" class="a-navbar-linkk">Complete Purchase History</a></li>
+            <li><a href="#" class="a-navbar-linkk">Favorites</a></li>
+            <li><a href="#" class="a-navbar-linkk">Payments</a></li>
+            <li><a href="#" class="a-navbar-linkk">Manage Team</a></li>
+            <li><a href="#" class="a-navbar-linkk">Manage Design Board</a></li>
+            <li><a href="#" class="a-navbar-linkk">Change Password</a></li>
+            <li><a href="#" class="a-navbar-linkk">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="side-nav d-none">
+  <div class="space"></div>
+  <div class="side-nav-card">
+    <ul class="side-nav-link-container " id="side-nav-level-1">
+      <li class="name">
+        <lord-icon src="https://cdn.lordicon.com/elkhjhci.json" trigger="hover" colors="primary:#545454"
+          style="width:32px;height:32px">
+        </lord-icon>Hi Awi !
+      </li>
+      <li><a href="#" class="s-nav-link"> Trend Reports <i class="fa-solid fa-angle-right"
+            data-open="side-trend-report"></i></a></li>
+      <li><a href="#" class="s-nav-link"> Designs <i class="fa-solid fa-angle-right" data-open="side-design"></i></a>
+      </li>
+      <li><a href="#">Customized Designs </a></li>
+      <li><a href="#"> Dashboard</a></li>
+      <li class=""><a href="#" class="side-nav-count">My Favourite <i class="fa-solid fa-heart p-relative"><sup
+              class="">5</sup></i></a></li>
+      <li class=""><a href="#" class="side-nav-count">My Cart <i class="fa fa-shopping-cart p-relative"><sup
+              class="">5</sup></i></a></li>
+      <li class=""><a href="#" class="side-nav-count">My Design <i class="fa fa-window-maximize p-relative"><sup
+              class="">5</sup></i></a></li>
+      <li><a href="#" class="s-nav-link"> Account <i class="fa-solid fa-angle-right" data-open="side-acctount"></i></a>
+      </li>
+    </ul>
+    <ul class="side-nav-link-container d-none" id="side-trend-report">
+      <li class="name">
+        <lord-icon src="https://cdn.lordicon.com/elkhjhci.json" trigger="hover" colors="primary:#545454"
+          style="width:32px;height:32px">
+        </lord-icon>Hi Awi !
+      </li>
+      <li><a href="#" class="s-nav-link"><i class="fa-solid fa-angle-left back" data-open="side-nav-level-1"></i>Trend
+          Reports</a></li>
+      <li><a href="#" class="s-nav-link">Men<i class="fa-solid fa-angle-right" data-open="s-trend-men"></i></a></li>
+      <li><a href="#" class="s-nav-link">Women<i class="fa-solid fa-angle-right" data-open="s-trend-women"></i></a></li>
+    </ul>
+    <ul class="side-nav-link-container d-none" id="side-design">
+      <li class="name">
+        <lord-icon src="https://cdn.lordicon.com/elkhjhci.json" trigger="hover" colors="primary:#545454"
+          style="width:32px;height:32px">
+        </lord-icon>Hi Awi !
+      </li>
+      <li><a href="#" class="s-nav-link"><i class="fa-solid fa-angle-left back"
+            data-open="side-nav-level-1"></i>Designs</a>
+      </li>
+      <li><a href="#" class="s-nav-link">Men<i class="fa-solid fa-angle-right" data-open="s-designs-men"></i></a></li>
+      <li><a href="#" class="s-nav-link">Women<i class="fa-solid fa-angle-right" data-open="s-designs-women"></i></a>
+      </li>
+    </ul>
+    <ul class="side-nav-link-container d-none" id="side-acctount">
+      <li class="name">
+        <lord-icon src="https://cdn.lordicon.com/elkhjhci.json" trigger="hover" colors="primary:#545454"
+          style="width:32px;height:32px">
+        </lord-icon>Hi Awi !
+      </li>
+      <li><a href="#" class="s-nav-link"><i class="fa-solid fa-angle-left back"
+            data-open="side-nav-level-1"></i>Back</a>
+      </li>
+      <li><a href="#" class="a-navbar-linkk">Profile</a></li>
+      <li><a href="#" class="a-navbar-linkk">Design Download History</a></li>
+      <li><a href="#" class="a-navbar-linkk">Trend Reports Download History</a></li>
+      <li><a href="#" class="a-navbar-linkk">Catalogue Download History</a></li>
+      <li><a href="#" class="a-navbar-linkk">Complete Purchase History</a></li>
+      <li><a href="#" class="a-navbar-linkk">Favorites</a></li>
+      <li><a href="#" class="a-navbar-linkk">Payments</a></li>
+      <li><a href="#" class="a-navbar-linkk">Manage Team</a></li>
+      <li><a href="#" class="a-navbar-linkk">Manage Design Board</a></li>
+      <li><a href="#" class="a-navbar-linkk">Change Password</a></li>
+      <li><a href="#" class="a-navbar-linkk">Logout</a></li>
+
+    </ul>
+    <ul class="side-nav-link-container d-none" id="s-trend-men">
+      <li class="name">
+        <lord-icon src="https://cdn.lordicon.com/elkhjhci.json" trigger="hover" colors="primary:#545454"
+          style="width:32px;height:32px">
+        </lord-icon>Hi Awi !
+      </li>
+      <li><a href="#" class="s-nav-link"><i class="fa-solid fa-angle-left back"
+            data-open="side-trend-report"></i>Back</a>
+      </li>
+      <li class=""><a href="#" class="heading">All Season</a></li>
+      <li><a href="#" class="a-navbar-linkk">Globe Trotter</a></li>
+      <li class=""><a href="#" class="heading"> Autumn Winter 22-23</a></li>
+      <li><a href="#" class="a-navbar-linkk">Digital Dystopia</a></li>
+      <li><a href="#" class="a-navbar-linkk">Indigenous Heritage</a></li>
+      <li><a href="#" class="a-navbar-linkk">Outdoor Adventure</a></li>
+      <li><a href="#" class="a-navbar-linkk">Outdoor Botanics</a></li>
+      <li><a href="#" class="a-navbar-linkk">Retro College</a></li>
+      <li><a href="#" class="a-navbar-linkk">Typo Explosion</a></li>
+      <li><a href="#" class="heading">Spring Summer 23</a></li>
+      <li><a href="#" class="a-navbar-linkk">Nautical Pop</a></li>
+      <li><a href="#" class="a-navbar-linkk">Punk Pop</a></li>
+      <li><a href="#" class="a-navbar-linkk">Sportify</a></li>
+      <li><a href="#" class="a-navbar-linkk">Vacay Life</a></li>
+      <li class=""><a href="#" class="heading">Autumn Winter 23-24</a></li>
+      <li><a href="#" class="a-navbar-linkk">Meta Dream</a></li>
+      <li><a href="#" class="a-navbar-linkk">Old World</a></li>
+    </ul>
+    <ul class="side-nav-link-container d-none" id="s-trend-women">
+      <li class="name">
+        <lord-icon src="https://cdn.lordicon.com/elkhjhci.json" trigger="hover" colors="primary:#545454"
+          style="width:32px;height:32px">
+        </lord-icon>Hi Awi !
+      </li>
+      <li><a href="#" class="s-nav-link"><i class="fa-solid fa-angle-left back"
+            data-open="side-trend-report"></i>Back</a>
+      </li>
+      <li class=""><a href="#" class="heading">All Season</a></li>
+      <li><a href="#" class="a-navbar-linkk">LOVE</a></li>
+      <li class=""><a href="#" class="heading"> Autumn Winter 22-23</a></li>
+      <li><a href="#" class="a-navbar-linkk">Digital Dystopia</a></li>
+      <li><a href="#" class="a-navbar-linkk">Outdoor Botanics</a></li>
+      <li><a href="#" class="a-navbar-linkk">Retro College</a></li>
+      <li><a href="#" class="a-navbar-linkk">Typo Explosion</a></li>
+      <li><a href="#" class="heading">Spring Summer 23</a></li>
+      <li><a href="#" class="a-navbar-linkk">Nautical Pop</a></li>
+      <li><a href="#" class="a-navbar-linkk">Punk Pop</a></li>
+      <li><a href="#" class="a-navbar-linkk">Sportify</a></li>
+      <li><a href="#" class="a-navbar-linkk">Vacay Life</a></li>
+      <li class=""><a href="#" class="heading">Autumn Winter 23-24</a></li>
+      <li><a href="#" class="a-navbar-linkk">Meta Dream</a></li>
+      <li><a href="#" class="a-navbar-linkk">Old World</a></li>
+    </ul>
+    <ul class="side-nav-link-container d-none" id="s-designs-men">
+      <li class="name">
+        <lord-icon src="https://cdn.lordicon.com/elkhjhci.json" trigger="hover" colors="primary:#545454"
+          style="width:32px;height:32px">
+        </lord-icon>Hi Awi !
+      </li>
+      <li><a href="#" class="s-nav-link"><i class="fa-solid fa-angle-left back" data-open="side-design"></i>Back</a>
+      </li>
+      <li><a href="#" class="a-navbar-linkk">Abstract</a></li>
+      <li><a href="#" class="a-navbar-linkk">Adventure</a></li>
+      <li><a href="#" class="a-navbar-linkk">Animal</a></li>
+      <li><a href="#" class="a-navbar-linkk">Aztec</a></li>
+      <li><a href="#" class="a-navbar-linkk">Bohemian</a></li>
+      <li><a href="#" class="a-navbar-linkk">Camouflage</a></li>
+      <li><a href="#" class="a-navbar-linkk">Checks</a></li>
+      <li><a href="#" class="a-navbar-linkk">Christmas</a></li>
+      <li><a href="#" class="a-navbar-linkk">Cities</a></li>
+      <li><a href="#" class="a-navbar-linkk">Clubbing</a></li>
+      <li><a href="#" class="a-navbar-linkk">Comic Strips</a></li>
+      <li><a href="#" class="a-navbar-linkk">Feminism</a></li>
+      <li><a href="#" class="a-navbar-linkk">Florals</a></li>
+      <li><a href="#" class="a-navbar-linkk">Food</a></li>
+      <li><a href="#" class="a-navbar-linkk">Geometric</a></li>
+      <li><a href="#" class="a-navbar-linkk">Hipsters</a></li>
+      <li><a href="#" class="a-navbar-linkk">Illustrations</a></li>
+      <li><a href="#" class="a-navbar-linkk">Indian Typography</a></li>
+      <li><a href="#" class="a-navbar-linkk">Japanese Art</a></li>
+      <li><a href="#" class="a-navbar-linkk">Love</a></li>
+      <li><a href="#" class="a-navbar-linkk">Marble</a></li>
+      <li><a href="#" class="a-navbar-linkk">Metaverse & Gaming</a></li>
+      <li><a href="#" class="a-navbar-linkk">Micro Patterns</a></li>
+      <li><a href="#" class="a-navbar-linkk">Motorsport & Aviation</a></li>
+      <li><a href="#" class="a-navbar-linkk">Music</a></li>
+      <li><a href="#" class="a-navbar-linkk">Nature</a></li>
+      <li><a href="#" class="a-navbar-linkk">Nautical</a></li>
+      <li><a href="#" class="a-navbar-linkk">Paisely</a></li>
+      <li><a href="#" class="a-navbar-linkk">Polka</a></li>
+      <li><a href="#" class="a-navbar-linkk">Skulls</a></li>
+      <li><a href="#" class="a-navbar-linkk">Social Media Trends</a></li>
+      <li><a href="#" class="a-navbar-linkk">Space</a></li>
+      <li><a href="#" class="a-navbar-linkk">Sports</a></li>
+      <li><a href="#" class="a-navbar-linkk">Stripes</a></li>
+      <li><a href="#" class="a-navbar-linkk">Sustainability</a></li>
+      <li><a href="#" class="a-navbar-linkk">Tattoos</a></li>
+    </ul>
+    <ul class="side-nav-link-container d-none" id="s-designs-women">
+      <li class="name">
+        <lord-icon src="https://cdn.lordicon.com/elkhjhci.json" trigger="hover" colors="primary:#545454"
+          style="width:32px;height:32px">
+        </lord-icon>Hi Awi !
+      </li>
+      <li><a href="#" class="s-nav-link"><i class="fa-solid fa-angle-left back" data-open="side-design"></i>Back</a>
+      </li>
+      <li><a href="#" class="a-navbar-linkk">Abstract-w</a></li>
+      <li><a href="#" class="a-navbar-linkk">Adventure</a></li>
+      <li><a href="#" class="a-navbar-linkk">Animal</a></li>
+      <li><a href="#" class="a-navbar-linkk">Aztec</a></li>
+      <li><a href="#" class="a-navbar-linkk">Bohemian</a></li>
+      <li><a href="#" class="a-navbar-linkk">Camouflage</a></li>
+      <li><a href="#" class="a-navbar-linkk">Checks</a></li>
+      <li><a href="#" class="a-navbar-linkk">Christmas</a></li>
+      <li><a href="#" class="a-navbar-linkk">Cities</a></li>
+      <li><a href="#" class="a-navbar-linkk">Clubbing</a></li>
+      <li><a href="#" class="a-navbar-linkk">Comic Strips</a></li>
+      <li><a href="#" class="a-navbar-linkk">Feminism</a></li>
+      <li><a href="#" class="a-navbar-linkk">Florals</a></li>
+      <li><a href="#" class="a-navbar-linkk">Food</a></li>
+      <li><a href="#" class="a-navbar-linkk">Geometric</a></li>
+      <li><a href="#" class="a-navbar-linkk">Hipsters</a></li>
+      <li><a href="#" class="a-navbar-linkk">Illustrations</a></li>
+      <li><a href="#" class="a-navbar-linkk">Indian Typography</a></li>
+      <li><a href="#" class="a-navbar-linkk">Japanese Art</a></li>
+      <li><a href="#" class="a-navbar-linkk">Love</a></li>
+      <li><a href="#" class="a-navbar-linkk">Marble</a></li>
+      <li><a href="#" class="a-navbar-linkk">Metaverse & Gaming</a></li>
+      <li><a href="#" class="a-navbar-linkk">Micro Patterns</a></li>
+      <li><a href="#" class="a-navbar-linkk">Motorsport & Aviation</a></li>
+      <li><a href="#" class="a-navbar-linkk">Music</a></li>
+      <li><a href="#" class="a-navbar-linkk">Nature</a></li>
+      <li><a href="#" class="a-navbar-linkk">Nautical</a></li>
+      <li><a href="#" class="a-navbar-linkk">Paisely</a></li>
+      <li><a href="#" class="a-navbar-linkk">Polka</a></li>
+      <li><a href="#" class="a-navbar-linkk">Skulls</a></li>
+      <li><a href="#" class="a-navbar-linkk">Social Media Trends</a></li>
+      <li><a href="#" class="a-navbar-linkk">Space</a></li>
+      <li><a href="#" class="a-navbar-linkk">Sports</a></li>
+      <li><a href="#" class="a-navbar-linkk">Stripes</a></li>
+      <li><a href="#" class="a-navbar-linkk">Sustainability</a></li>
+      <li><a href="#" class="a-navbar-linkk">Tattoos</a></li>
+    </ul>
+  </div>
+</div>
+<script>
+  $('.click-open').on('click', function () {
+    let id = $(this).attr('data-open');
+    $('.click-open .a-navbar-link').toggleClass('active')
+    $(`#${id}`).toggleClass('d-nonee');
+  });
+  $('.main-link').hover(function (e) {
+    $('.level-2-container').addClass('d-none');
+    $('.default').removeClass('d-none')
+    $('.sub-cat').removeClass('hover-background');
+    $('.sub-cat').children('.fa-angle-right').removeClass('w-c');
+    $('.d').addClass('hover-background');
+    $('.d .fa-angle-right').addClass('w-c');
+    $('.sub').addClass('d-none');
+    $('.main-link-default').removeClass('d-none');
+    if ($('.sub-cat-conatiner-2').hasClass('d-none')) {
+      $('.level-3-container').css('width', '80%');
+    }
+  });
+  $('.shadow-cntrl').hover(function (e) {
+    $('#profile').addClass('d-nonee');
+    $('.click-open .a-navbar-link').removeClass('active')
+    $('.nav-bar').css('box-shadow', e.type === "mouseenter" ? "none" : "0px 4px 4px rgb(0 0 0 / 15%)");
+  });
+  $('.level-1').hover(function () {
+
+    $('.level-2-container').addClass('d-none');
+    var id = $(this).attr('data-open');
+    $(`#${id}`).removeClass('d-none');
+    $(".level-1").removeClass('hover-background');
+    $(".level-1").children('.fa-angle-right').removeClass('w-c');
+    $(this).addClass('hover-background');
+    $(this).children('.fa-angle-right').addClass('w-c');
+    $(".level-2").removeClass('hover-background');
+    $(".level-2").children('.fa-angle-right').removeClass('w-c');
+    $('.level-2-container .d').addClass('hover-background');
+    $('.level-2-container .d').children('.fa-angle-right').addClass('w-c');
+    $('.sub').addClass('d-none');
+    $(`.${id}`).removeClass('d-none')
+
+  });
+  $('.level-2').hover(function () {
+    $(".level-2").removeClass('hover-background');
+    $(".level-2").children('.fa-angle-right').removeClass('w-c');
+    $(this).addClass('hover-background');
+    $(this).children('.fa-angle-right').addClass('w-c');
+    var id = $(this).attr('data-open');
+    $('.sub').addClass('d-none');
+    $(`#${id}`).removeClass('d-none');
+  })
+  $('.d-flexx').hover(function () {
+    var id = $(this).attr('data-active');
+    console.log(id)
+    $(`#${id}`).toggleClass('active-underline')
+  });
+  $('#menu').on('click', function () {
+    $(this).toggleClass('open');
+    $('.side-nav').toggleClass('d-none');
+    $('.side-nav-link-container').addClass('d-none');
+    $('#side-nav-level-1').removeClass('d-none');
+  });
+  $('.space').on('click', function () {
+    $('.side-nav').toggleClass('d-none');
+    $('#menu').removeClass('open');
+  });
+  $('.s-nav-link i').on('click', function () {
+    $('.side-nav-link-container').addClass('d-none');
+    let id = $(this).attr('data-open');
+    $(`#${id}`).removeClass('d-none');
+    console.log(id)
+  })
+</script>
+</body>
+
+</html>
